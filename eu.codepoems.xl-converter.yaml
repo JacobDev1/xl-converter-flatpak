@@ -178,7 +178,7 @@ modules:
         post-install:
           - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
         modules:
-          - name: libbrotli
+          - name: brotli
             buildsystem: cmake
             sources:
               - type: git

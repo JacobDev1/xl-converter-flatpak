@@ -8,7 +8,7 @@ generate-pip:
 .PHONY: build
 build:
 	rm -rf ./build
-	flatpak run org.flatpak.Builder build --user --ccache --install eu.codepoems.xl-converter.yml
+	flatpak run org.flatpak.Builder build --user --ccache --install eu.codepoems.xl-converter.yaml
 
 .PHONY: run
 run:
