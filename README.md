@@ -9,7 +9,7 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] libjxl
     - [x] libjpeg-turbo
     - [x] oxipng
-    - [ ] libavif. Works, but is missing LTO. Currently, it's slower than expected.
+    - [x] libavif
     - [ ] ImageMagick
 - [ ] Include ExifTool.
 - [ ] Adjust program itself to Flatpak.

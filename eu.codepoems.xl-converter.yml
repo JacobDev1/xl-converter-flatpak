@@ -103,13 +103,14 @@ modules:
           -DAVIF_ZLIBPNG=LOCAL \
           -DAVIF_CODEC_SVT=LOCAL \
           -DAVIF_CODEC_AOM=LOCAL \
+          -DCMAKE_AR=$(which gcc-ar) \
+          -DCMAKE_RANLIB=$(which gcc-ranlib) \
           -DCMAKE_INSTALL_PREFIX=$FLATPAK_DEST \
           ..
       - |
         cd build &&
         make -j$FLATPAK_BUILDER_N_JOBS &&
         make install
-      # ERROR: /usr/bin/ar: /run/build/libavif/ext/SVT-AV1/Bin/Release/libSvtAv1Enc.a(clog.c.o): plugin needed to handle lto object.
     post-install:
       - install -Dm755 build/avifenc $FLATPAK_DEST/xl-converter/bin/linux/avifenc
       - install -Dm755 build/avifdec $FLATPAK_DEST/xl-converter/bin/linux/avifdec
