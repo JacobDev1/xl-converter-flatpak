@@ -42,7 +42,11 @@ modules:
       - type: git
         url: https://github.com/libjxl/libjxl.git
         tag: v0.11.1
-  
+        x-checker-data:
+          - type: anitya
+            project-id: 232764
+            stable-only: true
+
   - name: libjpeg-turbo
     buildsystem: cmake
     config-opts:
@@ -53,6 +57,10 @@ modules:
       - type: git
         url: https://github.com/libjpeg-turbo/libjpeg-turbo.git
         tag: 3.0.4
+        x-checker-data:
+          - type: anitya
+            project-id: 1648
+            stable-only: true
   
   - name: oxipng
     buildsystem: simple
@@ -66,6 +74,9 @@ modules:
       - type: git
         url: https://github.com/shssoichiro/oxipng.git
         tag: v9.1.3
+        x-checker-data:
+          - type: git
+            tag-pattern: '^v([\\d.]+)$'
   
   - name: libavif
     buildsystem: simple
@@ -118,6 +129,10 @@ modules:
       - type: git
         url: https://aomedia.googlesource.com/libavif.git
         tag: v1.1.1
+        x-checker-data:
+          - type: anitya
+            project-id: 178015
+            stable-only: true
 
   - name: ImageMagick
     buildsystem: autotools
@@ -153,6 +168,10 @@ modules:
       - type: git
         url: https://github.com/ImageMagick/ImageMagick.git
         tag: 7.1.1-43
+        x-checker-data:
+          - type: anitya
+            project-id: 1372
+            stable-only: true
 
   - name: exiftool
     buildsystem: simple
