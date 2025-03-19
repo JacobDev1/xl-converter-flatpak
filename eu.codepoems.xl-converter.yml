@@ -93,13 +93,22 @@ modules:
       - |
         mkdir -p build &&
         cd build &&
-        cmake -DCMAKE_BUILD_TYPE=Release -DAVIF_BUILD_APPS=1 -DAVIF_LOCAL_LIBYUV=1 -DAVIF_LOCAL_LIBSHARPYUV=1 -DAVIF_LOCAL_JPEG=1 -DAVIF_LOCAL_ZLIBPNG=1 -DAVIF_CODEC_SVT=LOCAL -DAVIF_CODEC_AOM=LOCAL -DCMAKE_INSTALL_PREFIX=$FLATPAK_DEST -DBUILD_SHARED_LIBS=0 ..
+        cmake \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_SHARED_LIBS=0 \
+          -DAVIF_BUILD_APPS=1 \
+          -DAVIF_LIBYUV=LOCAL \
+          -DAVIF_LIBSHARPYUV=LOCAL \
+          -DAVIF_JPEG=LOCAL \
+          -DAVIF_ZLIBPNG=LOCAL \
+          -DAVIF_CODEC_SVT=LOCAL \
+          -DAVIF_CODEC_AOM=LOCAL \
+          -DCMAKE_INSTALL_PREFIX=$FLATPAK_DEST \
+          ..
       - |
         cd build &&
         make -j$FLATPAK_BUILDER_N_JOBS &&
         make install
-      - avifdec --version
-      - avifenc --version
       # ERROR: /usr/bin/ar: /run/build/libavif/ext/SVT-AV1/Bin/Release/libSvtAv1Enc.a(clog.c.o): plugin needed to handle lto object.
     post-install:
       - install -Dm755 build/avifenc $FLATPAK_DEST/xl-converter/bin/linux/avifenc
