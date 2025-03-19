@@ -17,3 +17,7 @@ run:
 .PHONY: validate-appstream
 validate-appstream:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream eu.codepoems.xl-converter.metainfo.xml
+
+.PHONY: validate-manifest
+validate-manifest:
+	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest eu.codepoems.xl-converter.yaml
