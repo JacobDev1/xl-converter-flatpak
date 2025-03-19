@@ -11,7 +11,7 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] oxipng
     - [x] libavif
     - [x] ImageMagick
-- [ ] Include ExifTool.
+    - [ ] ExifTool. Error when processing jxl files: `Warning: Install IO::Uncompress::Brotli to decode Brotli-compressed metadata`
 - [ ] Adjust program itself to Flatpak.
 - [ ] Adjust update checker.
 - [ ] Make sure scripts follow best practices.

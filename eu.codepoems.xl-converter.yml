@@ -154,6 +154,46 @@ modules:
         url: https://github.com/ImageMagick/ImageMagick.git
         tag: 7.1.1-43
 
+  - name: exiftool
+    buildsystem: simple
+    build-commands:
+      - perl Makefile.PL
+      - make install
+    sources:
+      - type: git
+        url: https://github.com/exiftool/exiftool.git
+        tag: 13.25
+        x-checker-data:
+          type: anitya
+          project-id: 6175
+          stable-only: true
+    modules:
+      - name: perl
+        no-autogen: true
+        config-opts:
+          - des
+          - Duseshrplib
+        build-options:
+          cflags: -fPIC
+          ldflags: -fpic
+        cleanup:
+          - "*.h"
+        post-install:
+          - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
+        sources:
+          - type: archive
+            url: https://www.cpan.org/src/5.0/perl-5.40.1.tar.xz
+            sha256: dfa20c2eef2b4af133525610bbb65dd13777ecf998c9c5b1ccf0d308e732ee3f
+            x-checker-data:
+              type: anitya
+              project-id: 13599
+              stable-only: true
+              url-template: https://www.cpan.org/src/${major}.0/perl-$version.tar.xz
+          - type: script
+            dest-filename: configure
+            commands:
+              - exec ./configure.gnu $@
+
   - python3-requirements.yaml
   
   - name: xl-converter
