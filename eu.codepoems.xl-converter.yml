@@ -119,6 +119,41 @@ modules:
         url: https://aomedia.googlesource.com/libavif.git
         tag: v1.1.1
 
+  - name: ImageMagick
+    buildsystem: autotools
+    config-opts:
+      - --enable-static
+      - --disable-shared
+      - --enable-hdri
+      - --with-quantum-depth=16
+      - --with-modules
+      - --without-perl
+      - --without-magick-plus-plus
+      - --with-png
+      - --with-jpeg
+      - --with-tiff
+      - --with-webp
+      - --with-jxl
+      - --with-zstd
+      - --with-bzlib
+      - --with-lzma
+      - --with-openjp2
+      - --with-heic
+      - --without-raw
+      - --disable-opencl
+      - --without-wmf
+      - --without-uhdr
+      - --without-djvu
+      - --without-openexr
+      - --without-raqm
+      - --without-jbig
+    post-install:
+      - install -Dm755 utilities/magick $FLATPAK_DEST/xl-converter/bin/linux/imagemagick/magick
+    sources:
+      - type: git
+        url: https://github.com/ImageMagick/ImageMagick.git
+        tag: 7.1.1-43
+
   - python3-requirements.yaml
   
   - name: xl-converter

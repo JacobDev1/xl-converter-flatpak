@@ -5,12 +5,12 @@ An official prototype for a Flatpak build of XL Converter.
 - [x] Write AppStream.
 - [x] Write Python build scaffolding.
 - [x] Get the Python program to build.
-- [ ] Get all libraries to build correctly.
+- [x] Get all libraries to build correctly.
     - [x] libjxl
     - [x] libjpeg-turbo
     - [x] oxipng
     - [x] libavif
-    - [ ] ImageMagick
+    - [x] ImageMagick
 - [ ] Include ExifTool.
 - [ ] Adjust program itself to Flatpak.
 - [ ] Adjust update checker.
