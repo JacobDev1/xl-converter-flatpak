@@ -21,3 +21,7 @@ validate-appstream:
 .PHONY: validate-manifest
 validate-manifest:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest eu.codepoems.xl-converter.yaml
+
+.PHONY: x-data-checker
+x-data-checker:
+	flatpak run org.flathub.flatpak-external-data-checker eu.codepoems.xl-converter.yaml
