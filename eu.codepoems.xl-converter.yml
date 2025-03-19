@@ -168,31 +168,47 @@ modules:
           project-id: 6175
           stable-only: true
     modules:
-      - name: perl
-        no-autogen: true
-        config-opts:
-          - des
-          - Duseshrplib
+      - name: exiftool-brotli
+        buildsystem: simple
         build-options:
-          cflags: -fPIC
-          ldflags: -fpic
-        cleanup:
-          - "*.h"
+          build-args:
+            - --share=network
+        build-commands:
+          - perl -e "use CPAN; CPAN::Shell->install('IO::Uncompress::Brotli');"
         post-install:
           - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
-        sources:
-          - type: archive
-            url: https://www.cpan.org/src/5.0/perl-5.40.1.tar.xz
-            sha256: dfa20c2eef2b4af133525610bbb65dd13777ecf998c9c5b1ccf0d308e732ee3f
-            x-checker-data:
-              type: anitya
-              project-id: 13599
-              stable-only: true
-              url-template: https://www.cpan.org/src/${major}.0/perl-$version.tar.xz
-          - type: script
-            dest-filename: configure
-            commands:
-              - exec ./configure.gnu $@
+        modules:
+          - name: libbrotli
+            buildsystem: cmake
+            sources:
+              - type: git
+                url: https://github.com/google/brotli.git
+                tag: v1.1.0
+          - name: perl
+            no-autogen: true
+            config-opts:
+              - des
+              - Duseshrplib
+            build-options:
+              cflags: -fPIC
+              ldflags: -fpic
+            cleanup:
+              - "*.h"
+            post-install:
+              - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
+            sources:
+              - type: archive
+                url: https://www.cpan.org/src/5.0/perl-5.40.1.tar.xz
+                sha256: dfa20c2eef2b4af133525610bbb65dd13777ecf998c9c5b1ccf0d308e732ee3f
+                x-checker-data:
+                  type: anitya
+                  project-id: 13599
+                  stable-only: true
+                  url-template: https://www.cpan.org/src/${major}.0/perl-$version.tar.xz
+              - type: script
+                dest-filename: configure
+                commands:
+                  - exec ./configure.gnu $@
 
   - python3-requirements.yaml
   
