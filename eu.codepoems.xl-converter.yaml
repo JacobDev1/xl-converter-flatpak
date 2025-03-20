@@ -20,6 +20,7 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=host
   - --socket=pulseaudio
+  - --share=network
 modules:
   
   - name: libjxl
