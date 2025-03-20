@@ -1,7 +1,7 @@
 .PHONY: generate-pip
 generate-pip:
-	# wget https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/v1.2.0/requirements.txt
-	cat ./xl-converter/requirements.txt | grep -v "pyside6" > requirements.txt
+	wget https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/v1.2.0/requirements.txt
+	cat requirements.txt | grep -v "pyside6" > requirements.txt
 	flatpak-pip-generator --yaml -r requirements.txt
 	rm requirements.txt
 
