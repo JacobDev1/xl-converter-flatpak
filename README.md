@@ -60,3 +60,9 @@ flatpak install org.flathub.flatpak-external-data-checker
 make build
 make run
 ```
+
+Additional `Makefile` targets:
+- `validate-appstream` - valdiate appstream file.
+- `validate-manifest` - validate flatpak manifest.
+- `x-data-checker` - run x-data-checker.
+- `generate-pip` - regenerate python3 requirements.
