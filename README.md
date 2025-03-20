@@ -12,7 +12,7 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] libavif
     - [x] ImageMagick
     - [x] ExifTool
-- [ ] Get x-checker-data to work correctly.
+- [x] Get x-checker-data to work correctly.
 - [ ] Adjust program itself to Flatpak.
 - [ ] Adjust update checker.
 - [ ] Make sure scripts follow best practices.
