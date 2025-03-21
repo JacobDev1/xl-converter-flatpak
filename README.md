@@ -20,6 +20,7 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] libavif
     - [x] ImageMagick
     - [x] ExifTool
+- [x] Fix the icon handling.
 - [ ] Adjust program itself to Flatpak.
 - [ ] Adjust update checker.
 - [ ] Make sure scripts follow best practices.

@@ -287,7 +287,9 @@ modules:
     buildsystem: simple
     build-commands:
       - install -Dm644 eu.codepoems.xl-converter.metainfo.xml $FLATPAK_DEST/share/metainfo/eu.codepoems.xl-converter.metainfo.xml
-      - install -Dm644 xl-converter/misc/xl-converter.desktop $FLATPAK_DEST/share/applications/xl-converter.desktop
+      - sed -i -E "s/^Icon=.*$/Icon=eu.codepoems.xl-converter/" xl-converter/misc/xl-converter.desktop
+      - install -Dm644 xl-converter/misc/xl-converter.desktop $FLATPAK_DEST/share/applications/eu.codepoems.xl-converter.desktop
+      - install -Dm644 xl-converter/assets/icons/logo.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/eu.codepoems.xl-converter.svg
       - install -Dm755 run.sh $FLATPAK_DEST/bin/run.sh
       - mkdir -p $FLATPAK_DEST/xl-converter
       - cp -r xl-converter/* $FLATPAK_DEST/xl-converter/
