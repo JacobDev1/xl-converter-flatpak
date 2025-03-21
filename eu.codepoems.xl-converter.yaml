@@ -62,7 +62,7 @@ modules:
       - -DENABLE_STATIC=TRUE
     no-make-install: true
     post-install:
-      - install -Dm755 jpegtran-static $FLATPAK_DEST/xl-converter/bin/linux/jpegtran
+      - install -Dm755 jpegtran-static /app/xl-converter/bin/linux/jpegtran
     sources:
       - type: git
         url: https://github.com/libjpeg-turbo/libjpeg-turbo.git
@@ -79,7 +79,7 @@ modules:
         - --share=network
     build-commands:
       - cargo build --release
-      - install -Dm755 target/release/oxipng $FLATPAK_DEST/xl-converter/bin/linux/oxipng
+      - install -Dm755 target/release/oxipng /app/xl-converter/bin/linux/oxipng
     sources:
       - type: git
         url: https://github.com/shssoichiro/oxipng.git
@@ -127,14 +127,14 @@ modules:
           -DAVIF_CODEC_AOM=LOCAL \
           -DCMAKE_AR=$(which gcc-ar) \
           -DCMAKE_RANLIB=$(which gcc-ranlib) \
-          -DCMAKE_INSTALL_PREFIX=$FLATPAK_DEST \
+          -DCMAKE_INSTALL_PREFIX=/app \
           ..
       - |
         cd build &&
         make -j$FLATPAK_BUILDER_N_JOBS
     post-install:
-      - install -Dm755 build/avifenc $FLATPAK_DEST/xl-converter/bin/linux/avifenc
-      - install -Dm755 build/avifdec $FLATPAK_DEST/xl-converter/bin/linux/avifdec
+      - install -Dm755 build/avifenc /app/xl-converter/bin/linux/avifenc
+      - install -Dm755 build/avifdec /app/xl-converter/bin/linux/avifdec
     sources:
       - type: git
         url: https://aomedia.googlesource.com/libavif.git
@@ -173,7 +173,7 @@ modules:
       - --without-raqm
       - --without-jbig
     post-install:
-      - install -Dm755 utilities/magick $FLATPAK_DEST/xl-converter/bin/linux/imagemagick/magick
+      - install -Dm755 utilities/magick /app/xl-converter/bin/linux/imagemagick/magick
     cleanup:
       - /bin/magick
       - /share/doc/ImageMagick-7
@@ -227,7 +227,7 @@ modules:
           - name: perl
             buildsystem: simple
             build-commands:
-              - ./Configure -des -Duseshrplib -Dman3dir=none -Dman1dir=none -Dprefix=$FLATPAK_DEST
+              - ./Configure -des -Duseshrplib -Dman3dir=none -Dman1dir=none -Dprefix=/app
               - make
               - make install
             cleanup:
@@ -286,13 +286,13 @@ modules:
   - name: xl-converter
     buildsystem: simple
     build-commands:
-      - install -Dm644 eu.codepoems.xl-converter.metainfo.xml $FLATPAK_DEST/share/metainfo/eu.codepoems.xl-converter.metainfo.xml
+      - install -Dm644 eu.codepoems.xl-converter.metainfo.xml /app/share/metainfo/eu.codepoems.xl-converter.metainfo.xml
       - sed -i -E "s/^Icon=.*$/Icon=eu.codepoems.xl-converter/" xl-converter/misc/xl-converter.desktop
-      - install -Dm644 xl-converter/misc/xl-converter.desktop $FLATPAK_DEST/share/applications/eu.codepoems.xl-converter.desktop
-      - install -Dm644 xl-converter/assets/icons/logo.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/eu.codepoems.xl-converter.svg
-      - install -Dm755 run.sh $FLATPAK_DEST/bin/run.sh
-      - mkdir -p $FLATPAK_DEST/xl-converter
-      - cp -r xl-converter/* $FLATPAK_DEST/xl-converter/
+      - install -Dm644 xl-converter/misc/xl-converter.desktop /app/share/applications/eu.codepoems.xl-converter.desktop
+      - install -Dm644 xl-converter/assets/icons/logo.svg /app/share/icons/hicolor/scalable/apps/eu.codepoems.xl-converter.svg
+      - install -Dm755 run.sh /app/bin/run.sh
+      - mkdir -p /app/xl-converter
+      - cp -r xl-converter/* /app/xl-converter/
     sources:
       - type: git
         # Swapt path for the following url when deploying:
