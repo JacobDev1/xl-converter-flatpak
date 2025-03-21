@@ -1,4 +1,4 @@
-An official prototype for a Flatpak build of XL Converter.
+The development environment for the official Flatpak builds of XL Converter.
 
 ## Progress
 
@@ -22,24 +22,14 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] ExifTool
 - [x] Fix the icon handling.
 - [x] Add screenshots.
-- [ ] Adjust program itself to Flatpak.
-- [ ] Adjust update checker.
-- [ ] Make sure scripts follow best practices.
-- [ ] Make sure everything works.
 - [ ] Replace placeholder screenshot URLs.
+- [ ] Validate build.
 - [ ] Submit the application to Flathub.
+- [ ] Application was accepted to Flathub.
 
 ## Prerequisites
 
-- Flatpak.
-- cloned xl-converter repo.
-- Sdk.
-
-### Cloning repo
-
-```bash
-git clone --depth 1 -b v1.2.0 https://github.com/JacobDev1/xl-converter.git
-```
+Install [Flatpak](https://flatpak.org/).
 
 ### Installing SDK
 
@@ -49,16 +39,16 @@ flatpak install -y runtime/org.kde.Sdk/x86_64/6.8 app/io.qt.PySide.BaseApp/x86_6
 
 ### Optional
 
-Required for regenerating python3 requirements:
+Required if regenerating python3 requirements:
 
 ```bash
 wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator -O ~/.local/bin/flatpak-pip-generator
 chmod +x ~/.local/bin/flatpak-pip-generator
-exec bash
 python install --user requirements-parser PyYAML
+exec bash
 ```
 
-Required if validating x-data-checker:
+Required if using x-data-checker:
 
 ```bash
 flatpak install org.flathub.flatpak-external-data-checker
@@ -77,6 +67,8 @@ Additional `Makefile` targets:
 - `x-data-checker` - run x-data-checker.
 - `generate-pip` - regenerate python3 requirements.
 
-## Resources
+## Helpful Resources
 
-- [Flatpak schema](https://github.com/flatpak/flatpak-builder/blob/main/data/flatpak-manifest.schema.json)
+- [Flatpak manifest schema](https://github.com/flatpak/flatpak-builder/blob/main/data/flatpak-manifest.schema.json)
+- [Flatpak docs](https://docs.flatpak.org/)
+- [Flathub docs](https://docs.flathub.org/)
