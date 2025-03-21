@@ -53,8 +53,24 @@
     <url type="vcs-browser">https://github.com/JacobDev1/xl-converter</url>
     <screenshots>
         <screenshot type="default">
-            <image>https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/v1.2.0/misc/images/screenshot_0.png</image>
-            <caption>Output tab</caption>
+            <image>url_to_image/screenshots/output_tab_jpeg_xl.png</image>
+            <caption>Output tab - JPEG XL</caption>
+        </screenshot>
+        <screenshot>
+            <image>url_to_image/screenshots/output_tab_lossless_jpeg_transcoding.png</image>
+            <caption>Output tab - Lossless JPEG Transcoding</caption>
+        </screenshot>
+        <screenshot>
+            <image>url_to_image/screenshots/modify_tab.png</image>
+            <caption>Modify tab</caption>
+        </screenshot>
+        <screenshot>
+            <image>url_to_image/screenshots/input_tab.png</image>
+            <caption>Input tab</caption>
+        </screenshot>
+        <screenshot>
+            <image>url_to_image/screenshots/about_tab.png</image>
+            <caption>About tab</caption>
         </screenshot>
     </screenshots>
     <releases>

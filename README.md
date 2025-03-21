@@ -21,10 +21,12 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] ImageMagick
     - [x] ExifTool
 - [x] Fix the icon handling.
+- [x] Add screenshots.
 - [ ] Adjust program itself to Flatpak.
 - [ ] Adjust update checker.
 - [ ] Make sure scripts follow best practices.
 - [ ] Make sure everything works.
+- [ ] Replace placeholder screenshot URLs.
 - [ ] Submit the application to Flathub.
 
 ## Prerequisites
