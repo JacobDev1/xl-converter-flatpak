@@ -25,8 +25,8 @@
     <icon type="stock">eu.codepoems.xl-converter</icon>
     <icon type="remote">https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/v1.2.0/assets/icons/logo.svg</icon>
     <branding>
-        <color type="primary" scheme_preference="light">#f7f7f7</color>
-        <color type="primary" scheme_preference="dark">#141414</color>
+        <color type="primary" scheme_preference="light">#5ebf82</color>
+        <color type="primary" scheme_preference="dark">#0b6939</color>
     </branding>
     <content_rating type="oars-1.1" />
     <recommends>
