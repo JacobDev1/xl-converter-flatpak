@@ -13,6 +13,7 @@
         <p>XL Converter is an easy-to-use image converter for modern formats.</p>
         <ul>
             <li>Batch transcode images to JPEG XL, AVIF, WebP, JPEG and PNG.</li>
+            <li>Preserve high quality at a modest size with JPEG XL and AVIF.</li>
             <li>Encode better quality JPEG images with JPEGLI.</li>
             <li>Losslessly recompress your JPEG images.</li>
             <li>Convert faster with parallel encoding.</li>
@@ -24,8 +25,8 @@
     <icon type="stock">eu.codepoems.xl-converter</icon>
     <icon type="remote">https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/v1.2.0/assets/icons/logo.svg</icon>
     <branding>
-    <color type="primary" scheme_preference="light">#f7f7f7</color>
-    <color type="primary" scheme_preference="dark">#141414</color>
+        <color type="primary" scheme_preference="light">#f7f7f7</color>
+        <color type="primary" scheme_preference="dark">#141414</color>
     </branding>
     <content_rating type="oars-1.1" />
     <recommends>
@@ -46,11 +47,21 @@
         <mediatype>image/jp2</mediatype>
         <mediatype>image/webp</mediatype>
     </provides>
+    <categories>
+        <category>Graphics</category>
+        <category>ImageProcessing</category>
+    </categories>
+    <keywords>
+        <keyword>image</keyword>
+        <keyword>converter</keyword>
+        <keyword>jpeg xl</keyword>
+    </keywords>
 
     <url type="bugtracker">https://github.com/JacobDev1/xl-converter/issues</url>
     <url type="homepage">https://codepoems.eu/xl-converter</url>
     <url type="donation">https://codepoems.eu/donate</url>
     <url type="vcs-browser">https://github.com/JacobDev1/xl-converter</url>
+    <url type="help">https://xl-docs.codepoems.eu/</url>
     <screenshots>
         <screenshot type="default">
             <image>url_to_image/screenshots/output_tab_jpeg_xl.png</image>
@@ -74,14 +85,9 @@
         </screenshot>
     </screenshots>
     <releases>
-        <release version="1.2.1" date="2026-01-01">
-            <url type="details">https://github.com/JacobDev1/xl-converter/blob/v1.2.1/misc/changelog.md</url>
+        <release version="1.2.0" date="2025-02-14">
+            <url type="details">https://github.com/JacobDev1/xl-converter/blob/v1.2.0/misc/changelog.md</url>
             <description>
-                <p>Release description</p>
-                <ul>
-                    <li>List of changes</li>
-                    <li>List of changes</li>
-                </ul>
             </description>
         </release>
     </releases>
