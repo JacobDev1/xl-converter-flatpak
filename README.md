@@ -13,6 +13,13 @@ An official prototype for a Flatpak build of XL Converter.
     - [x] ImageMagick
     - [x] ExifTool
 - [x] Get x-checker-data to work correctly.
+- [x] Reduce bundle size:
+    - [x] oxipng
+    - [x] libjpeg-turbo
+    - [x] libjxl
+    - [x] libavif
+    - [x] ImageMagick
+    - [x] ExifTool
 - [ ] Adjust program itself to Flatpak.
 - [ ] Adjust update checker.
 - [ ] Make sure scripts follow best practices.
@@ -66,3 +73,7 @@ Additional `Makefile` targets:
 - `validate-manifest` - validate flatpak manifest.
 - `x-data-checker` - run x-data-checker.
 - `generate-pip` - regenerate python3 requirements.
+
+## Resources
+
+- [Flatpak schema](https://github.com/flatpak/flatpak-builder/blob/main/data/flatpak-manifest.schema.json)

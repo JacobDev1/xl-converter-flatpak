@@ -39,6 +39,13 @@ modules:
       - install -Dm755 /app/bin/djxl /app/xl-converter/bin/linux/djxl
       - install -Dm755 /app/bin/jxlinfo /app/xl-converter/bin/linux/jxlinfo
       - install -Dm755 /app/bin/cjpegli /app/xl-converter/bin/linux/cjpegli
+    cleanup:
+      - /bin/benchmark_xl
+      - /bin/cjpegli
+      - /bin/djpegli
+      - /bin/cjxl
+      - /bin/djxl
+      - /bin/jxlinfo
     sources:
       - type: git
         url: https://github.com/libjxl/libjxl.git
@@ -52,8 +59,10 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DENABLE_STATIC=TRUE
+    no-make-install: true
     post-install:
-      - install -Dm755 $FLATPAK_DEST/bin/jpegtran $FLATPAK_DEST/xl-converter/bin/linux/jpegtran
+      - install -Dm755 jpegtran-static $FLATPAK_DEST/xl-converter/bin/linux/jpegtran
     sources:
       - type: git
         url: https://github.com/libjpeg-turbo/libjpeg-turbo.git
@@ -122,8 +131,7 @@ modules:
           ..
       - |
         cd build &&
-        make -j$FLATPAK_BUILDER_N_JOBS &&
-        make install
+        make -j$FLATPAK_BUILDER_N_JOBS
     post-install:
       - install -Dm755 build/avifenc $FLATPAK_DEST/xl-converter/bin/linux/avifenc
       - install -Dm755 build/avifdec $FLATPAK_DEST/xl-converter/bin/linux/avifdec
@@ -166,6 +174,9 @@ modules:
       - --without-jbig
     post-install:
       - install -Dm755 utilities/magick $FLATPAK_DEST/xl-converter/bin/linux/imagemagick/magick
+    cleanup:
+      - /bin/magick
+      - /share/doc/ImageMagick-7
     sources:
       - type: git
         url: https://github.com/ImageMagick/ImageMagick.git
@@ -180,6 +191,8 @@ modules:
     build-commands:
       - perl Makefile.PL
       - make install
+    cleanup:
+      - '*.pod'
     sources:
       - type: git
         url: https://github.com/exiftool/exiftool.git
@@ -198,6 +211,8 @@ modules:
           - perl -e "use CPAN; CPAN::Shell->install('IO::Uncompress::Brotli');"
         post-install:
           - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
+        cleanup:
+          - '*pod'
         modules:
           - name: brotli
             buildsystem: cmake-ninja
@@ -210,15 +225,46 @@ modules:
                   type: git
                   tag-pattern: ^v([\d.]+)$
           - name: perl
-            no-autogen: true
-            config-opts:
-              - des
-              - Duseshrplib
+            buildsystem: simple
+            build-commands:
+              - ./Configure -des -Duseshrplib -Dman3dir=none -Dman1dir=none -Dprefix=$FLATPAK_DEST
+              - make
+              - make install
+            cleanup:
+              - /bin/corelist
+              - /bin/cpan
+              - /bin/enc2xs
+              - /bin/encguess
+              - /bin/h2ph
+              - /bin/h2xs
+              - /bin/instmodsh
+              - /bin/json_pp
+              - /bin/libnetcfg
+              - /bin/perl5*
+              - /bin/perlbug
+              - /bin/perldoc
+              - /bin/perlivp
+              - /bin/perlthanks
+              - /bin/piconv
+              - /bin/pl2pm
+              - /bin/pod2html
+              - /bin/pod2man
+              - /bin/pod2text
+              - /bin/pod2usage
+              - /bin/podchecker
+              - /bin/prove
+              - /bin/ptar
+              - /bin/ptardiff
+              - /bin/ptargrep
+              - /bin/shasum
+              - /bin/splain
+              - /bin/streamzip
+              - /bin/xsubpp
+              - /bin/zipdetails
+              - '*.pod'
             build-options:
               cflags: -fPIC
               ldflags: -fpic
-            cleanup:
-              - "*.h"
             post-install:
               - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
             sources:
