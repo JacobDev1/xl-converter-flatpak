@@ -26,6 +26,10 @@ generate-sources-oxipng:
 	flatpak-cargo-generator Cargo.lock -o oxipng_sources.json
 	rm Cargo.lock
 
+.PHONY: generate-sources-cpan-brotli
+generate-sources-cpan-brotli:
+	flatpak-cpan-generator.pl "IO::Uncompress::Brotli" -o cpan_brotli_sources.json
+
 .PHONY: validate-appstream
 validate-appstream:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream $(METAINFO_PATH)

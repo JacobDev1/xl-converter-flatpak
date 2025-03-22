@@ -23,9 +23,9 @@ The development environment for the official Flatpak builds of XL Converter.
 - [x] Fix the icon handling.
 - [x] Add screenshots.
 - [ ] Generate and integrate sources:
-    - [x] Oxipng
+    - [x] oxipng
     - [ ] libavif
-    - [ ] Perl
+    - [x] cpan brotli
 - [ ] Validate build.
 - [ ] Replace placeholder screenshot URLs.
 - [ ] Submit the application to Flathub.
@@ -61,6 +61,20 @@ pip install --user aiohttp toml
 exec bash
 ```
 
+Required to run `generate-sources-cpan-brotli`:
+
+```bash
+sudo apt update
+sudo apt install \
+    perl \
+    cpanminus \
+    libgetopt-long-descriptive-perl \
+    libjson-maybexs-perl \
+    libwww-perl \
+    libmetacpan-client-perl \
+    libcapture-tiny-perl
+```
+
 Required to run `x-data-checker`:
 
 ```bash
@@ -86,9 +100,13 @@ Sources need to be regenerated every update of that module.
 Change a version tag in `Makefile` and run the corresponding target:
 - `generate-sources-xl-converter`
 - `generate-sources-oxipng`
+- `generate-sources-cpan-brotli`
 
 ## Helpful Resources
 
 - [Flatpak manifest schema](https://github.com/flatpak/flatpak-builder/blob/main/data/flatpak-manifest.schema.json)
 - [Flatpak docs](https://docs.flatpak.org/)
 - [Flathub docs](https://docs.flathub.org/)
+- [Cargo generator docs](https://github.com/flatpak/flatpak-builder-tools/tree/master/cargo)
+- [CPAN generator docs](https://github.com/flatpak/flatpak-builder-tools/tree/master/cpan)
+- [pip generator docs](https://github.com/flatpak/flatpak-builder-tools/tree/master/pip)

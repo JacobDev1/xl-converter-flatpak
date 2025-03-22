@@ -207,15 +207,15 @@ modules:
     modules:
       - name: exiftool-brotli
         buildsystem: simple
-        build-options:
-          build-args:
-            - --share=network
         build-commands:
-          - perl -e "use CPAN; CPAN::Shell->install('IO::Uncompress::Brotli');"
+          - perl-libs/install.sh
         post-install:
-          - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
+          - chmod -Rf u+w /app/lib/perl5/site_perl
+        sources:
+          - cpan_brotli_sources.json
         cleanup:
-          - '*pod'
+          - /bin
+          - /man
         modules:
           - name: brotli
             buildsystem: cmake-ninja
