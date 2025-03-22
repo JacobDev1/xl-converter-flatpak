@@ -94,27 +94,12 @@ modules:
   
   - name: libavif
     buildsystem: simple
-    build-options:
-      build-args:
-        - --share=network
-      env:
-        AOM_VERSION: 'v3.11.0'
-        SVT_REPO: 'https://github.com/psy-ex/svt-av1-psy.git'
-        SVT_VERSION: 'v2.3.0-B'
     build-commands:
       - |
         cd ext &&
-        sed -i -E "s/v[0-9]+\.[0-9]+\.[0-9]+/${AOM_VERSION}/" aom.cmd &&
-        sed -i -E "s#https://gitlab.com/AOMediaCodec/SVT-AV1\.git#${SVT_REPO} SVT-AV1#" svt.sh &&
-        sed -i -E "s/v[0-9]+\.[0-9]+\.[0-9]+/${SVT_VERSION}/" svt.sh &&
-        cat aom.cmd && cat svt.sh &&
-        chmod +x libyuv.cmd libsharpyuv.cmd libjpeg.cmd zlibpng.cmd svt.sh aom.cmd &&
-        ./libyuv.cmd &&
-        ./libsharpyuv.cmd &&
-        ./libjpeg.cmd &&
-        ./zlibpng.cmd &&
-        ./svt.sh &&
-        ./aom.cmd
+        sed -i -E "/git clone/d" libyuv.cmd libsharpyuv.cmd libjpeg.cmd svt.sh aom.cmd &&
+        chmod +x libyuv.cmd libsharpyuv.cmd libjpeg.cmd svt.sh aom.cmd &&
+        ./libyuv.cmd && ./libsharpyuv.cmd && ./libjpeg.cmd && ./svt.sh && ./aom.cmd
       - |
         mkdir -p build &&
         cd build &&
@@ -131,9 +116,7 @@ modules:
           -DCMAKE_AR=$(which gcc-ar) \
           -DCMAKE_RANLIB=$(which gcc-ranlib) \
           -DCMAKE_INSTALL_PREFIX=/app \
-          ..
-      - |
-        cd build &&
+          .. &&
         make -j$FLATPAK_BUILDER_N_JOBS
     post-install:
       - install -Dm755 build/avifenc /app/xl-converter/bin/linux/avifenc
@@ -143,6 +126,46 @@ modules:
         url: https://aomedia.googlesource.com/libavif.git
         tag: v1.1.1
         commit: bb24db03cd99befe09c87b602e36f24d75a980d1
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+      - type: git
+        url: https://chromium.googlesource.com/libyuv/libyuv.git
+        dest: ext/libyuv
+        commit: a6a2ec65
+      - type: git
+        url: https://chromium.googlesource.com/webm/libwebp.git
+        dest: ext/libwebp
+        tag: v1.4.0
+        commit: a443170fc0ebdfc3abbf89ac81f35e7eb656a3da
+      - type: git
+        url: https://github.com/libjpeg-turbo/libjpeg-turbo.git
+        dest: ext/libjpeg-turbo
+        tag: 3.0.3
+        commit: 7fa4b5b762c9a99b46b0b7838f5fd55071b92ea5
+      - type: git
+        url: https://github.com/madler/zlib.git
+        dest: ext/zlib
+        tag: v1.3.1
+        commit: 51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf
+      - type: git
+        url: https://github.com/glennrp/libpng.git
+        dest: ext/libpng
+        tag: v1.6.40
+        commit: f135775ad4e5d4408d2e12ffcc71bb36e6b48551
+      - type: git
+        url: https://github.com/psy-ex/svt-av1-psy.git
+        dest: ext/SVT-AV1
+        tag: v2.3.0-B
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)-[A-Z]$
+        commit: ec65071b65ee70078229182ce6e1d0f6a4aa1a47
+      - type: git
+        url: https://aomedia.googlesource.com/aom.git
+        dest: ext/aom
+        tag: v3.11.0
+        commit: d6f30ae474dd6c358f26de0a0fc26a0d7340a84c
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

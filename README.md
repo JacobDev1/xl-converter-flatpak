@@ -22,9 +22,9 @@ The development environment for the official Flatpak builds of XL Converter.
     - [x] ExifTool
 - [x] Fix the icon handling.
 - [x] Add screenshots.
-- [ ] Generate and integrate sources:
+- [x] Generate and integrate sources:
     - [x] oxipng
-    - [ ] libavif
+    - [x] libavif
     - [x] cpan brotli
 - [ ] Validate build.
 - [ ] Replace placeholder screenshot URLs.
