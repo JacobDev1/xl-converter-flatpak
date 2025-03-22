@@ -75,12 +75,15 @@ modules:
   - name: oxipng
     buildsystem: simple
     build-options:
-      build-args:
-        - --share=network
+      env:
+        CARGO_HOME: /run/build/oxipng/cargo
     build-commands:
-      - cargo build --release
+      - ln -s config cargo/config.toml
+      - cargo --offline fetch --manifest-path Cargo.toml
+      - cargo --offline build --release
       - install -Dm755 target/release/oxipng /app/xl-converter/bin/linux/oxipng
     sources:
+      - oxipng_sources.json
       - type: git
         url: https://github.com/shssoichiro/oxipng.git
         tag: v9.1.3

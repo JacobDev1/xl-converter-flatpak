@@ -22,8 +22,12 @@ The development environment for the official Flatpak builds of XL Converter.
     - [x] ExifTool
 - [x] Fix the icon handling.
 - [x] Add screenshots.
-- [ ] Replace placeholder screenshot URLs.
+- [ ] Generate and integrate sources:
+    - [x] Oxipng
+    - [ ] libavif
+    - [ ] Perl
 - [ ] Validate build.
+- [ ] Replace placeholder screenshot URLs.
 - [ ] Submit the application to Flathub.
 - [ ] Application was accepted to Flathub.
 
@@ -39,16 +43,25 @@ flatpak install -y runtime/org.kde.Sdk/x86_64/6.8 app/io.qt.PySide.BaseApp/x86_6
 
 ### Optional
 
-Required if regenerating python3 requirements:
+Required to run `generate-sources-xl-converter`:
 
 ```bash
 wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator -O ~/.local/bin/flatpak-pip-generator
 chmod +x ~/.local/bin/flatpak-pip-generator
-python install --user requirements-parser PyYAML
+pip install --user requirements-parser PyYAML
 exec bash
 ```
 
-Required if using x-data-checker:
+Required to run `generate-sources-oxipng`:
+
+```bash
+wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/cargo/flatpak-cargo-generator.py -O ~/.local/bin/flatpak-cargo-generator
+chmod +x ~/.local/bin/flatpak-cargo-generator
+pip install --user aiohttp toml
+exec bash
+```
+
+Required to run `x-data-checker`:
 
 ```bash
 flatpak install org.flathub.flatpak-external-data-checker
@@ -65,7 +78,14 @@ Additional `Makefile` targets:
 - `validate-appstream` - valdiate appstream file.
 - `validate-manifest` - validate flatpak manifest.
 - `x-data-checker` - run x-data-checker.
-- `generate-pip` - regenerate python3 requirements.
+
+## Regenerating Sources
+
+Sources need to be regenerated every update of that module.
+
+Change a version tag in `Makefile` and run the corresponding target:
+- `generate-sources-xl-converter`
+- `generate-sources-oxipng`
 
 ## Helpful Resources
 

@@ -1,7 +1,8 @@
 MANIFEST_PATH 				= ./eu.codepoems.xl-converter.yaml
 METAINFO_PATH 				= ./eu.codepoems.xl-converter.metainfo.xml
 BUILD_DIR					= ./build
-VERSION_FOR_PIP_GENERATOR 	= v1.2.0
+XL_CONVERTER_TAG 			= v1.2.0
+OXIPNG_TAG					= v9.1.3
 
 .PHONY: build
 build:
@@ -12,12 +13,18 @@ build:
 run:
 	flatpak run eu.codepoems.xl-converter
 
-.PHONY: generate-pip
-generate-pip:
-	wget https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/$(VERSION_FOR_PIP_GENERATOR)/requirements.txt
+.PHONY: generate-sources-xl-converter
+generate-sources-xl-converter:
+	wget https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/$(XL_CONVERTER_TAG)/requirements.txt
 	cat requirements.txt | grep -v "pyside6" > requirements.txt
 	flatpak-pip-generator --yaml -r requirements.txt
 	rm requirements.txt
+
+.PHONY: generate-sources-oxipng
+generate-sources-oxipng:
+	wget https://raw.githubusercontent.com/shssoichiro/oxipng/refs/tags/$(OXIPNG_TAG)/Cargo.lock
+	flatpak-cargo-generator Cargo.lock -o oxipng_sources.json
+	rm Cargo.lock
 
 .PHONY: validate-appstream
 validate-appstream:
