@@ -64,23 +64,23 @@
     <url type="help">https://xl-docs.codepoems.eu/</url>
     <screenshots>
         <screenshot type="default">
-            <image>url_to_image/screenshots/output_tab_jpeg_xl.png</image>
+            <image>https://raw.githubusercontent.com/JacobDev1/xl-converter-flatpak/ec682077717f4654b1ed66473ee7d13eba09b227/screenshots/output_tab_jpeg_xl.png</image>
             <caption>Output tab - JPEG XL</caption>
         </screenshot>
         <screenshot>
-            <image>url_to_image/screenshots/output_tab_lossless_jpeg_transcoding.png</image>
+            <image>https://raw.githubusercontent.com/JacobDev1/xl-converter-flatpak/ec682077717f4654b1ed66473ee7d13eba09b227/screenshots/output_tab_lossless_jpeg_transcoding.png</image>
             <caption>Output tab - Lossless JPEG Transcoding</caption>
         </screenshot>
         <screenshot>
-            <image>url_to_image/screenshots/modify_tab.png</image>
+            <image>https://raw.githubusercontent.com/JacobDev1/xl-converter-flatpak/ec682077717f4654b1ed66473ee7d13eba09b227/screenshots/modify_tab.png</image>
             <caption>Modify tab</caption>
         </screenshot>
         <screenshot>
-            <image>url_to_image/screenshots/input_tab.png</image>
+            <image>https://raw.githubusercontent.com/JacobDev1/xl-converter-flatpak/ec682077717f4654b1ed66473ee7d13eba09b227/screenshots/input_tab.png</image>
             <caption>Input tab</caption>
         </screenshot>
         <screenshot>
-            <image>url_to_image/screenshots/about_tab.png</image>
+            <image>https://raw.githubusercontent.com/JacobDev1/xl-converter-flatpak/ec682077717f4654b1ed66473ee7d13eba09b227/screenshots/about_tab.png</image>
             <caption>About tab</caption>
         </screenshot>
     </screenshots>

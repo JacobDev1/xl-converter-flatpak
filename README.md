@@ -26,8 +26,8 @@ The development environment for the official Flatpak builds of XL Converter.
     - [x] oxipng
     - [x] libavif
     - [x] cpan brotli
-- [ ] Validate build.
-- [ ] Replace placeholder screenshot URLs.
+- [x] Validate build.
+- [x] Replace placeholder screenshot URLs.
 - [ ] Submit the application to Flathub.
 - [ ] Application was accepted to Flathub.
 
