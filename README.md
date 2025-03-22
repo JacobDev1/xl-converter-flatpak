@@ -43,7 +43,7 @@ flatpak install -y runtime/org.kde.Sdk/x86_64/6.8 app/io.qt.PySide.BaseApp/x86_6
 
 ### Optional
 
-Required to run `generate-sources-xl-converter`:
+Required to run `generate-modules-xl-converter`:
 
 ```bash
 wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator -O ~/.local/bin/flatpak-pip-generator
@@ -98,7 +98,7 @@ Additional `Makefile` targets:
 Sources need to be regenerated every update of that module.
 
 Change a version tag in `Makefile` and run the corresponding target:
-- `generate-sources-xl-converter`
+- `generate-modules-xl-converter`
 - `generate-sources-oxipng`
 - `generate-sources-cpan-brotli`
 

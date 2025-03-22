@@ -13,12 +13,12 @@ build:
 run:
 	flatpak run eu.codepoems.xl-converter
 
-.PHONY: generate-sources-xl-converter
-generate-sources-xl-converter:
+.PHONY: generate-modules-xl-converter
+generate-modules-xl-converter:
 	wget https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/$(XL_CONVERTER_TAG)/requirements.txt
-	cat requirements.txt | grep -v "pyside6" > requirements.txt
-	flatpak-pip-generator --yaml -r requirements.txt
-	rm requirements.txt
+	cat requirements.txt | grep -v "pyside6" > requirements_filtered.txt
+	flatpak-pip-generator --yaml -r requirements_filtered.txt -o xl_converter_modules
+	rm requirements.txt requirements_filtered.txt
 
 .PHONY: generate-sources-oxipng
 generate-sources-oxipng:

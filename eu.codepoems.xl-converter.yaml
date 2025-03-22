@@ -307,8 +307,6 @@ modules:
                 commands:
                   - exec ./configure.gnu $@
 
-  - python3-requirements.yaml
-  
   - name: xl-converter
     buildsystem: simple
     build-commands:
@@ -319,7 +317,11 @@ modules:
       - install -Dm755 run.sh /app/bin/run.sh
       - mkdir -p /app/xl-converter
       - cp -r xl-converter/* /app/xl-converter/
+    modules:
+      - xl_converter_modules.yaml
     sources:
+      - type: file
+        path: eu.codepoems.xl-converter.metainfo.xml
       - type: git
         url: https://github.com/JacobDev1/xl-converter.git
         dest: xl-converter
@@ -328,8 +330,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-      - type: file
-        path: eu.codepoems.xl-converter.metainfo.xml
       - type: script
         commands:
           - python3 /app/xl-converter/main.py
