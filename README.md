@@ -28,8 +28,8 @@ The development environment for the official Flatpak builds of XL Converter.
     - [x] cpan brotli
 - [x] Validate build.
 - [x] Replace placeholder screenshot URLs.
-- [ ] Submit the application to Flathub.
-- [ ] Application was accepted to Flathub.
+- [x] Submit the application to Flathub ([view submission](https://github.com/flathub/flathub/pull/6305)).
+- [ ] Address Flathub reviewers' requests for changes.
 
 ## Prerequisites
 
