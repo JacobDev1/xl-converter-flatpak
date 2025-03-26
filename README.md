@@ -100,7 +100,6 @@ make run
 ```
 
 Additional `Makefile` targets:
-- `validate-appstream` - valdiate appstream file.
 - `validate-manifest` - validate flatpak manifest.
 - `x-data-checker` - run x-data-checker.
 - `build-aarch64` - build for aarch64.

@@ -1,5 +1,4 @@
 MANIFEST_PATH 				= ./eu.codepoems.xl-converter.yaml
-METAINFO_PATH 				= ./eu.codepoems.xl-converter.metainfo.xml
 BUILD_DIR					= ./build
 XL_CONVERTER_TAG 			= v1.2.0
 OXIPNG_TAG					= v9.1.3
@@ -38,10 +37,6 @@ generate-sources-cpan-brotli:
 .PHONY: validate-appstream
 validate-appstream:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream $(METAINFO_PATH)
-
-.PHONY: validate-manifest
-validate-manifest:
-	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest $(MANIFEST_PATH)
 
 .PHONY: x-data-checker
 x-data-checker:
