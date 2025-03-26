@@ -38,7 +38,7 @@ Install [Flatpak](https://flatpak.org/).
 ### Installing SDK
 
 ```bash
-flatpak install -y runtime/org.kde.Sdk/x86_64/6.8 app/io.qt.PySide.BaseApp/x86_64/6.8 org.freedesktop.Sdk.Extension.rust-stable//24.08
+flatpak install -y runtime/org.kde.Sdk/x86_64/6.8 app/io.qt.PySide.BaseApp/x86_64/6.8 org.freedesktop.Sdk.Extension.rust-stable/x86_64/24.08
 ```
 
 ### Optional
@@ -81,6 +81,17 @@ Required to run `x-data-checker`:
 flatpak install org.flathub.flatpak-external-data-checker
 ```
 
+Required to run `build-aarch64` and for testing `aarch64` support on `x86_64`:
+
+```bash
+sudo apt update
+sudo apt install qemu-user-static binfmt-support
+flatpak install -y org.kde.Sdk/aarch64/6.8 org.kde.Platform/aarch64/6.8 io.qt.PySide.BaseApp/aarch64/6.8 org.freedesktop.Sdk.Extension.rust-stable/aarch64/24.08
+```
+
+> [!NOTE]
+> The Flatpak Builder may tell you to install nonexistent version of an Sdk extension like Rust ([related issue](https://github.com/flatpak/flatpak-builder/issues/494)). If this happens, check available branches with `flatpak search`.
+
 ## Running
 
 ```bash
@@ -92,6 +103,7 @@ Additional `Makefile` targets:
 - `validate-appstream` - valdiate appstream file.
 - `validate-manifest` - validate flatpak manifest.
 - `x-data-checker` - run x-data-checker.
+- `build-aarch64` - build for aarch64.
 
 ## Regenerating Sources
 

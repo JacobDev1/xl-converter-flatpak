@@ -9,6 +9,11 @@ build:
 	rm -rf $(BUILD_DIR)
 	flatpak run org.flatpak.Builder $(BUILD_DIR) --user --ccache --install $(MANIFEST_PATH)
 
+.PHONY: build-aarch64
+build-aarch64:
+	rm -rf $(BUILD_DIR)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --arch=aarch64 --user --ccache --install $(MANIFEST_PATH)
+
 .PHONY: run
 run:
 	flatpak run eu.codepoems.xl-converter
