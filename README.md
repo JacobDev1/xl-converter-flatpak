@@ -1,35 +1,8 @@
+## Development Environment
+
 The development environment for the official Flatpak builds of XL Converter.
 
-## Progress
-
-- [x] Write AppStream.
-- [x] Write Python build scaffolding.
-- [x] Get the Python program to build.
-- [x] Get all libraries to build correctly.
-    - [x] libjxl
-    - [x] libjpeg-turbo
-    - [x] oxipng
-    - [x] libavif
-    - [x] ImageMagick
-    - [x] ExifTool
-- [x] Get x-checker-data to work correctly.
-- [x] Reduce bundle size:
-    - [x] oxipng
-    - [x] libjpeg-turbo
-    - [x] libjxl
-    - [x] libavif
-    - [x] ImageMagick
-    - [x] ExifTool
-- [x] Fix the icon handling.
-- [x] Add screenshots.
-- [x] Generate and integrate sources:
-    - [x] oxipng
-    - [x] libavif
-    - [x] cpan brotli
-- [x] Validate build.
-- [x] Replace placeholder screenshot URLs.
-- [x] Submit the application to Flathub ([view submission](https://github.com/flathub/flathub/pull/6305)).
-- [ ] Address Flathub reviewers' requests for changes.
+[View Flathub submission](https://github.com/flathub/flathub/pull/6305)
 
 ## Prerequisites
 
