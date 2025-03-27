@@ -34,9 +34,9 @@ generate-sources-oxipng:
 generate-sources-cpan-brotli:
 	flatpak-cpan-generator.pl "IO::Uncompress::Brotli" -o cpan_brotli_sources.json
 
-.PHONY: validate-appstream
-validate-appstream:
-	flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream $(METAINFO_PATH)
+.PHONY: validate-manifest
+validate-manifest:
+	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest $(MANIFEST_PATH)
 
 .PHONY: x-data-checker
 x-data-checker:
