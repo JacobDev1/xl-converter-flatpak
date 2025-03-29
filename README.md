@@ -1,8 +1,8 @@
 ## Development Environment
 
-The development environment for the official Flatpak builds of XL Converter.
+The development environment for the official Flatpak builds of [XL Converter](https://github.com/JacobDev1/xl-converter).
 
-[View Flathub submission](https://github.com/flathub/flathub/pull/6305)
+[Flathub page](https://flathub.org/apps/eu.codepoems.xl-converter)
 
 ## Prerequisites
 
