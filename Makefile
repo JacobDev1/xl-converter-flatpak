@@ -5,13 +5,11 @@ OXIPNG_TAG					= v9.1.3
 
 .PHONY: build
 build:
-	rm -rf $(BUILD_DIR)
-	flatpak run org.flatpak.Builder $(BUILD_DIR) --user --ccache --install $(MANIFEST_PATH)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --user --ccache --install --force-clean $(MANIFEST_PATH)
 
 .PHONY: build-aarch64
 build-aarch64:
-	rm -rf $(BUILD_DIR)
-	flatpak run org.flatpak.Builder $(BUILD_DIR) --arch=aarch64 --user --ccache --install $(MANIFEST_PATH)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --arch=aarch64 --user --ccache --install --force-clean $(MANIFEST_PATH)
 
 .PHONY: run
 run:
