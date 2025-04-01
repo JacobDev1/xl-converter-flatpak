@@ -1,7 +1,7 @@
 MANIFEST_PATH 				= ./eu.codepoems.xl-converter.yaml
 BUILD_DIR					= ./build
-XL_CONVERTER_TAG 			= v1.2.0
-OXIPNG_TAG					= v9.1.3
+XL_CONVERTER_TAG 			= v1.2.1
+OXIPNG_TAG					= v9.1.4
 
 .PHONY: build
 build:
