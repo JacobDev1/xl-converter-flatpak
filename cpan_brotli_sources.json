@@ -1,21 +1,15 @@
 [
    {
+      "dest": "perl-libs/Capture-Tiny",
+      "sha256": "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5",
+      "type": "archive",
+      "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.50.tar.gz"
+   },
+   {
       "dest": "perl-libs/File-Which",
       "sha256": "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a",
       "type": "archive",
       "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz"
-   },
-   {
-      "dest": "perl-libs/Path-Tiny",
-      "sha256": "818aed754b74f399e42c238bea738e20a52af89a6e3feb58bec9d0130eea4746",
-      "type": "archive",
-      "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.148.tar.gz"
-   },
-   {
-      "dest": "perl-libs/File-chdir",
-      "sha256": "31ebf912df48d5d681def74b9880d78b1f3aca4351a0ed1fe3570b8e03af6c79",
-      "type": "archive",
-      "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1011.tar.gz"
    },
    {
       "dest": "perl-libs/FFI-CheckLib",
@@ -24,10 +18,16 @@
       "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.31.tar.gz"
    },
    {
-      "dest": "perl-libs/Capture-Tiny",
-      "sha256": "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5",
+      "dest": "perl-libs/File-chdir",
+      "sha256": "31ebf912df48d5d681def74b9880d78b1f3aca4351a0ed1fe3570b8e03af6c79",
       "type": "archive",
-      "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.50.tar.gz"
+      "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1011.tar.gz"
+   },
+   {
+      "dest": "perl-libs/Path-Tiny",
+      "sha256": "818aed754b74f399e42c238bea738e20a52af89a6e3feb58bec9d0130eea4746",
+      "type": "archive",
+      "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.148.tar.gz"
    },
    {
       "dest": "perl-libs/Alien-Build",
@@ -68,11 +68,11 @@
          "        exit 1",
          "    fi",
          "}",
-         "(make_install perl-libs/File-Which)",
-         "(make_install perl-libs/Path-Tiny)",
-         "(make_install perl-libs/File-chdir)",
-         "(make_install perl-libs/FFI-CheckLib)",
          "(make_install perl-libs/Capture-Tiny)",
+         "(make_install perl-libs/File-Which)",
+         "(make_install perl-libs/FFI-CheckLib)",
+         "(make_install perl-libs/File-chdir)",
+         "(make_install perl-libs/Path-Tiny)",
          "(make_install perl-libs/Alien-Build)",
          "(make_install perl-libs/Alien-cmake3)",
          "(make_install perl-libs/File-Slurper)",

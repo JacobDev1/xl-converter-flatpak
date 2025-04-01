@@ -186,8 +186,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exiftool/exiftool.git
-        tag: '13.25'
-        commit: 15d7ae9e464f43ecaede14335f757a04e5b4f472
+        tag: '13.26'
+        commit: cd31f33c3d5bfe85396ae9a2ee6d2efd0ef65934
         x-checker-data:
           type: git
           tag-pattern: ^(\d+.\d+)$
@@ -256,7 +256,7 @@ modules:
               cflags: -fPIC
               ldflags: -fpic
             post-install:
-              - find ${FLATPAK_DEST}/lib/perl5/ -name \*.so -exec chmod u+w {} \;
+              - 'chmod -R u+w /app/lib/perl5'
             sources:
               - type: archive
                 url: https://www.cpan.org/src/5.0/perl-5.40.1.tar.xz
