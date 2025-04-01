@@ -94,15 +94,19 @@ modules:
     sources:
       - type: git
         url: https://aomedia.googlesource.com/libavif.git
-        tag: v1.1.1
-        commit: bb24db03cd99befe09c87b602e36f24d75a980d1
+        tag: v1.2.1
+        commit: fcb084c9387e367750f5375e462005ce298f57cc
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://chromium.googlesource.com/libyuv/libyuv.git
         dest: ext/libyuv
-        commit: a6a2ec65
+        commit: ccdf87034
+      - type: git
+        url: https://github.com/maryla-uc/libargparse.git
+        dest: ext/libargparse
+        commit: 81998ffafb9c2ac8cf488d31e536a2e6fd6b3fdf
       - type: git
         url: https://github.com/psy-ex/svt-av1-psy.git
         dest: ext/SVT-AV1
@@ -114,8 +118,8 @@ modules:
       - type: git
         url: https://aomedia.googlesource.com/aom.git
         dest: ext/aom
-        tag: v3.11.0
-        commit: d6f30ae474dd6c358f26de0a0fc26a0d7340a84c
+        tag: v3.12.0
+        commit: 3b624af45b86646a20b11a9ff803aeae588cdee6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -123,9 +127,12 @@ modules:
         commands:
           - |
             cd ext &&
-            sed -i -E "/git clone/d" libyuv.cmd svt.sh aom.cmd &&
-            chmod +x libyuv.cmd svt.sh aom.cmd &&
-            ./libyuv.cmd && ./svt.sh && ./aom.cmd
+            sed -i -E "/git clone/d" libyuv.cmd svt.sh aom.cmd libargparse.cmd &&
+            chmod +x libyuv.cmd svt.sh aom.cmd libargparse.cmd &&
+            ./libyuv.cmd &&
+            ./libargparse.cmd &&
+            ./svt.sh &&
+            ./aom.cmd
 
   - name: ImageMagick
     buildsystem: autotools
