@@ -288,7 +288,7 @@ modules:
       - type: git
         url: https://github.com/JacobDev1/xl-converter.git
         dest: xl-converter
-        commit: d9d4d00b13d429df082eec9a187a48dbd8b686dc
+        commit: 35689bf58882162de400b26e579b31735c6d580c
       - type: script
         commands:
           - python3 /app/xl-converter/main.py
