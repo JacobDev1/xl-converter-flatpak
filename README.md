@@ -6,12 +6,23 @@ The development environment for the official Flatpak builds of [XL Converter](ht
 
 ## Prerequisites
 
+### Required
+
 Install [Flatpak](https://flatpak.org/).
 
-### Installing SDK
+Install Flatpak Builder:
 
 ```bash
-flatpak install -y runtime/org.kde.Sdk/x86_64/6.8 app/io.qt.PySide.BaseApp/x86_64/6.8 org.freedesktop.Sdk.Extension.rust-stable/x86_64/24.08
+flatpak install app/org.flatpak.Builder/x86_64
+```
+
+Install SDK:
+
+```bash
+flatpak install -y \
+    runtime/org.kde.Sdk/x86_64/6.8 \
+    app/io.qt.PySide.BaseApp/x86_64/6.8 \
+    org.freedesktop.Sdk.Extension.rust-stable/x86_64/24.08
 ```
 
 ### Optional
