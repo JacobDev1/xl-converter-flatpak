@@ -15,6 +15,28 @@ build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
+  # https://github.com/flatpak/flatpak-builder/issues/233
+  - rm -rfv /app/lib/python*/site-packages/OpenGL
+  - rm -rfv /app/lib/python*/site-packages/PyOpenGL*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/examples
+  - rm -rfv /app/lib/python*/site-packages/PySide6/Qt/lib/libav*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/Qt/lib/libsw*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtOpenGL*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/Qt3DRender*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtCharts*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtQuick*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/Qt3DExtras*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtLocation*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtPositioning*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtDesigner*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtQml*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtBluetooth*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtSensors*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/QtSql*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/Qt3DAnimation*
+  - rm -rfv /app/lib/python*/site-packages/PySide6/Qt3DCore*
+  - rm -rfv /app/lib/libexec/webenginedriver
+  - rm -rfv /app/lib/libexec/QtWebEngineProcess
 finish-args:
   - --share=ipc
   - --socket=wayland
