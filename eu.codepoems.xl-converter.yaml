@@ -27,7 +27,6 @@ cleanup-commands:
   - rm -rfv /app/lib/python*/site-packages/PySide6/QtQuick*
   - rm -rfv /app/lib/python*/site-packages/PySide6/Qt3DExtras*
   - rm -rfv /app/lib/python*/site-packages/PySide6/QtLocation*
-  - rm -rfv /app/lib/python*/site-packages/PySide6/QtPositioning*
   - rm -rfv /app/lib/python*/site-packages/PySide6/QtDesigner*
   - rm -rfv /app/lib/python*/site-packages/PySide6/QtQml*
   - rm -rfv /app/lib/python*/site-packages/PySide6/QtBluetooth*
