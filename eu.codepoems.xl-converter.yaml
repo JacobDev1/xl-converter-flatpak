@@ -88,8 +88,8 @@ modules:
       - oxipng_sources.json
       - type: git
         url: https://github.com/shssoichiro/oxipng.git
-        tag: v9.1.4
-        commit: bc8c36456858fe4678460bdea520a4ec0bc50dc4
+        tag: v9.1.5
+        commit: c7d462f909e9c6ebc8d32820d83a6119b681cad6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -116,15 +116,15 @@ modules:
     sources:
       - type: git
         url: https://aomedia.googlesource.com/libavif.git
-        tag: v1.2.1
-        commit: fcb084c9387e367750f5375e462005ce298f57cc
+        tag: v1.3.0
+        commit: 1aadfad932c98c069a1204261b1856f81f3bc199
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://chromium.googlesource.com/libyuv/libyuv.git
         dest: ext/libyuv
-        commit: ccdf87034
+        commit: 4db2af62d
       - type: git
         url: https://github.com/maryla-uc/libargparse.git
         dest: ext/libargparse
@@ -132,16 +132,24 @@ modules:
       - type: git
         url: https://github.com/psy-ex/svt-av1-psy.git
         dest: ext/SVT-AV1
-        tag: v2.3.0-B
+        tag: v3.0.2
+        commit: e44e0a2f64089eec98f45a996d47f00ab9c531f2
         x-checker-data:
           type: git
-          tag-pattern: ^v([\d.]+)-[A-Z]$
-        commit: ec65071b65ee70078229182ce6e1d0f6a4aa1a47
+          tag-pattern: ^v([\d.]+)$
+      - type: git
+      # url from SVT-AV1/cmake/cpuinfo.cmake
+        url: https://github.com/1480c1/cpuinfo.git
+        dest: ext/SVT-AV1/third_party/cpuinfo
+        commit: e649baaa95efeb61517c06cc783287d4942ffe0e
+      - type: patch
+        path: SVT-AV1-PSY.patch
+        dest: ext/SVT-AV1
       - type: git
         url: https://aomedia.googlesource.com/aom.git
         dest: ext/aom
-        tag: v3.12.0
-        commit: 3b624af45b86646a20b11a9ff803aeae588cdee6
+        tag: v3.12.1
+        commit: 10aece4157eb79315da205f39e19bf6ab3ee30d0
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -208,8 +216,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exiftool/exiftool.git
-        tag: '13.26'
-        commit: cd31f33c3d5bfe85396ae9a2ee6d2efd0ef65934
+        tag: '13.30'
+        commit: 1ed3f81e6634198fe637df4d42bd90c594ea5283
         x-checker-data:
           type: git
           tag-pattern: ^(\d+.\d+)$
@@ -281,8 +289,8 @@ modules:
               - 'chmod -R u+w /app/lib/perl5'
             sources:
               - type: archive
-                url: https://www.cpan.org/src/5.0/perl-5.40.1.tar.xz
-                sha256: dfa20c2eef2b4af133525610bbb65dd13777ecf998c9c5b1ccf0d308e732ee3f
+                url: https://www.cpan.org/src/5.0/perl-5.40.2.tar.xz
+                sha256: 0551c717458e703ef7972307ab19385edfa231198d88998df74e12226abf563b
                 x-checker-data:
                   type: anitya
                   project-id: 13599
