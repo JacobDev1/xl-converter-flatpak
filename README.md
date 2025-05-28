@@ -84,7 +84,7 @@ make run
 ```
 
 Additional `Makefile` targets:
-- `validate-manifest` - validate flatpak manifest.
+- `validate-manifest` - validate Flatpak manifest.
 - `x-data-checker` - run x-data-checker.
 - `build-aarch64` - build for aarch64.
 
@@ -96,6 +96,20 @@ Change a version tag in `Makefile` and run the corresponding target:
 - `generate-modules-xl-converter`
 - `generate-sources-oxipng`
 - `generate-sources-cpan-brotli`
+
+## Updating Dependencies
+
+When updating dependencies, run `x-data-checker` to list outdated dependencies.
+
+```bash
+make x-data-checker
+```
+
+When updating commit hashes, copy new hashes from `x-data-checker` or dereference tags (`^{}`) like this:
+
+```bash
+git ls-remote https://github.com/AOMediaCodec/libavif.git 'refs/tags/v1.3.0^{}'
+```
 
 ## Helpful Resources
 
