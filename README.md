@@ -90,7 +90,7 @@ Additional `Makefile` targets:
 
 ## Regenerating Sources
 
-Sources need to be regenerated every update of that module.
+Sources need to be regenerated regularly, even if package versions do not change.
 
 Change a version tag in `Makefile` and run the corresponding target:
 - `generate-modules-xl-converter`
