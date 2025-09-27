@@ -38,6 +38,7 @@ cleanup-commands:
   - rm -rfv /app/lib/python*/site-packages/PySide6/Qt3DCore*
   - rm -rfv /app/lib/libexec/webenginedriver
   - rm -rfv /app/lib/libexec/QtWebEngineProcess
+  - rm -rfv /app/xl-converter/test*
 finish-args:
   - --share=ipc
   - --socket=wayland
