@@ -251,7 +251,7 @@ modules:
             build-commands:
               - ./Configure -des -Duseshrplib -Dman3dir=none -Dman1dir=none -Dprefix=/app
               - make
-              - make install
+              - make install-strip
             cleanup:
               - /bin/corelist
               - /bin/cpan
@@ -287,6 +287,9 @@ modules:
             build-options:
               cflags: -fPIC
               ldflags: -fpic
+              # `strip: true` (the default) conflicts with rofiles. This workaround uses `make install-strip` with `strip: false`.
+              # Alternatively, pass `--disable-rofiles-fuse` to flatpak-builder.
+              strip: false
             post-install:
               - 'chmod -R u+w /app/lib/perl5'
             sources:
