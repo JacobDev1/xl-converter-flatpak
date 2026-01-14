@@ -13,7 +13,7 @@ Install [Flatpak](https://flatpak.org/).
 Install Flatpak Builder:
 
 ```bash
-flatpak install app/org.flatpak.Builder/x86_64
+flatpak install -y app/org.flatpak.Builder/x86_64
 ```
 
 Install SDK:
@@ -22,7 +22,7 @@ Install SDK:
 flatpak install -y \
     runtime/org.kde.Sdk/x86_64/6.8 \
     app/io.qt.PySide.BaseApp/x86_64/6.8 \
-    org.freedesktop.Sdk.Extension.rust-stable/x86_64/24.08
+    org.freedesktop.Sdk.Extension.rust-stable/x86_64/25.08
 ```
 
 ### Optional
@@ -48,6 +48,9 @@ exec bash
 Required to run `generate-sources-cpan-brotli`:
 
 ```bash
+wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/cpan/flatpak-cpan-generator.pl -O ~/.local/bin/flatpak-cpan-generator.pl
+chmod +x ~/.local/bin/flatpak-cpan-generator.pl
+exec bash
 sudo apt update
 sudo apt install \
     perl \
