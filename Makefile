@@ -1,15 +1,16 @@
-MANIFEST_PATH 				= ./eu.codepoems.xl-converter.yaml
-BUILD_DIR					= ./build
-XL_CONVERTER_TAG 			= v1.2.1
-OXIPNG_TAG					= v9.1.5
+MANIFEST_PATH        = ./eu.codepoems.xl-converter.yaml
+BUILD_DIR            = ./build
+XL_CONVERTER_TAG     = v1.2.1
+OXIPNG_TAG           = v9.1.5
+JOBS                 = $(shell n=$$(nproc); echo $$((n > 1 ? n - 1 : 1)))
 
 .PHONY: build
 build:
-	flatpak run org.flatpak.Builder $(BUILD_DIR) --user --ccache --install --force-clean $(MANIFEST_PATH)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --jobs=$(JOBS) --user --ccache --install --force-clean $(MANIFEST_PATH)
 
 .PHONY: build-aarch64
 build-aarch64:
-	flatpak run org.flatpak.Builder $(BUILD_DIR) --arch=aarch64 --user --ccache --install --force-clean $(MANIFEST_PATH)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --jobs=$(JOBS) --arch=aarch64 --user --ccache --install --force-clean $(MANIFEST_PATH)
 
 .PHONY: run
 run:
