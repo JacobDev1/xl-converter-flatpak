@@ -30,7 +30,8 @@ generate-sources-oxipng:
 
 .PHONY: generate-sources-cpan-brotli
 generate-sources-cpan-brotli:
-	flatpak-cpan-generator.pl "IO::Uncompress::Brotli" -o cpan_brotli_sources.json
+	flatpak-cpan-generator.pl "IO::Uncompress::Brotli" "IO::Compress::Brotli" -o cpan_brotli_sources.json
+	sed -i '/(make_install perl-libs\/Alien-cmake3)/i \         "sed -i '\''s/$$major == 3/$$major >= 3/'\'' perl-libs/Alien-cmake3/alienfile",' cpan_brotli_sources.json
 
 .PHONY: validate-manifest
 validate-manifest:
