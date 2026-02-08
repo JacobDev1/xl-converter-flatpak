@@ -30,7 +30,7 @@ flatpak install -y \
 Required to run `generate-modules-xl-converter`:
 
 ```bash
-wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator -O ~/.local/bin/flatpak-pip-generator
+wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator.py -O ~/.local/bin/flatpak-pip-generator
 chmod +x ~/.local/bin/flatpak-pip-generator
 pip install --user requirements-parser PyYAML
 exec bash
