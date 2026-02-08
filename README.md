@@ -41,7 +41,7 @@ Required to run `generate-sources-oxipng`:
 ```bash
 wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/cargo/flatpak-cargo-generator.py -O ~/.local/bin/flatpak-cargo-generator
 chmod +x ~/.local/bin/flatpak-cargo-generator
-pip install --user aiohttp toml
+pip install --user aiohttp tomlkit
 exec bash
 ```
 
