@@ -1,6 +1,6 @@
 id: eu.codepoems.xl-converter
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -60,6 +60,7 @@ modules:
       - -DJPEGXL_ENABLE_PLUGINS=OFF
       - -DJPEGXL_ENABLE_OPENEXR=OFF
       - -DJPEGXL_ENABLE_DEVTOOLS=OFF
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     post-install:
       - mkdir -p /app/xl-converter/bin/linux
       - cd /app/bin && mv cjxl djxl jxlinfo cjpegli /app/xl-converter/bin/linux/
