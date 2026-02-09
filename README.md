@@ -20,8 +20,8 @@ Install SDK:
 
 ```bash
 flatpak install -y \
-    runtime/org.kde.Sdk/x86_64/6.8 \
-    app/io.qt.PySide.BaseApp/x86_64/6.8 \
+    runtime/org.kde.Sdk/x86_64/6.10 \
+    app/io.qt.PySide.BaseApp/x86_64/6.10 \
     org.freedesktop.Sdk.Extension.rust-stable/x86_64/25.08
 ```
 
