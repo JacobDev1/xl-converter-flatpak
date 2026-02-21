@@ -114,8 +114,9 @@ When updating commit hashes, copy new hashes from `x-data-checker` or dereferenc
 git ls-remote https://github.com/AOMediaCodec/libavif.git 'refs/tags/v1.3.0^{}'
 ```
 
-## Helpful Resources
+## References
 
+- [XL Converter Flathub manifest](https://github.com/flathub/eu.codepoems.xl-converter)
 - [Flatpak manifest schema](https://github.com/flatpak/flatpak-builder/blob/main/data/flatpak-manifest.schema.json)
 - [Flatpak docs](https://docs.flatpak.org/)
 - [Flathub docs](https://docs.flathub.org/)
