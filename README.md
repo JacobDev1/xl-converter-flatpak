@@ -73,7 +73,7 @@ Required to run `build-aarch64` and for testing `aarch64` support on `x86_64`:
 ```bash
 sudo apt update
 sudo apt install qemu-user-static binfmt-support
-flatpak install -y org.kde.Sdk/aarch64/6.8 org.kde.Platform/aarch64/6.8 io.qt.PySide.BaseApp/aarch64/6.8 org.freedesktop.Sdk.Extension.rust-stable/aarch64/24.08
+flatpak install -y org.kde.Sdk/aarch64/6.10 org.kde.Platform/aarch64/6.10 io.qt.PySide.BaseApp/aarch64/6.10 org.freedesktop.Sdk.Extension.rust-stable/aarch64/25.08
 ```
 
 > [!NOTE]
