@@ -1,7 +1,7 @@
 MANIFEST_PATH        = ./eu.codepoems.xl-converter.yaml
 BUILD_DIR            = ./build
-XL_CONVERTER_TAG     = v1.2.1
-OXIPNG_TAG           = v9.1.5
+XL_CONVERTER_COMMIT  = 6228d6a3fd106aec2f27298dc6580c48f8989710
+OXIPNG_TAG           = v10.2.1
 JOBS                 = $(shell n=$$(nproc); echo $$((n > 1 ? n - 1 : 1)))
 
 .PHONY: build
@@ -18,7 +18,7 @@ run:
 
 .PHONY: generate-modules-xl-converter
 generate-modules-xl-converter:
-	wget https://raw.githubusercontent.com/JacobDev1/xl-converter/refs/tags/$(XL_CONVERTER_TAG)/requirements.txt
+	wget https://raw.githubusercontent.com/JacobDev1/xl-converter/${XL_CONVERTER_COMMIT}/requirements.txt
 	cat requirements.txt | grep -v "pyside6" > requirements_filtered.txt
 	flatpak-pip-generator --yaml -r requirements_filtered.txt -o xl_converter_modules
 	rm requirements.txt requirements_filtered.txt

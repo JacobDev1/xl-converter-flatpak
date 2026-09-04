@@ -65,20 +65,44 @@ modules:
       - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     post-install:
       - mkdir -p /app/xl-converter/bin/linux
-      - cd /app/bin && mv cjxl djxl jxlinfo cjpegli /app/xl-converter/bin/linux/
-      - cd /app/xl-converter/bin/linux/ && chmod 755 cjxl djxl jxlinfo cjpegli
+      - cd /app/bin && mv cjxl djxl jxlinfo /app/xl-converter/bin/linux/
+      - cd /app/xl-converter/bin/linux/ && chmod 755 cjxl djxl jxlinfo
     cleanup:
       - /bin/benchmark_xl
       - /bin/djpegli
     sources:
       - type: git
         url: https://github.com/libjxl/libjxl.git
-        tag: v0.11.1
-        commit: 794a5dcf0d54f9f0b20d288a12e87afb91d20dfc
+        tag: v0.12.0
+        commit: a7a9c787341cf703dede03c2009fa460cae5e5df
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-  
+
+  - name: jpegli
+    buildsystem: cmake-ninja
+    no-make-install: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=OFF
+      - -DBUILD_TESTING=OFF
+      - -DJPEGLI_ENABLE_TOOLS=ON
+      - -DJPEGLI_ENABLE_JPEGLI_LIBJPEG=OFF
+      - -DJPEGLI_ENABLE_BENCHMARK=OFF
+      - -DJPEGLI_ENABLE_FUZZERS=OFF
+      - -DJPEGLI_ENABLE_JNI=OFF
+      - -DJPEGLI_ENABLE_SJPEG=OFF
+      - -DJPEGLI_ENABLE_OPENEXR=OFF
+      - -DJPEGLI_ENABLE_DEVTOOLS=OFF
+      - -DJPEGLI_ENABLE_DOXYGEN=OFF
+      - -DJPEGLI_BUNDLE_LIBPNG=ON
+    post-install:
+      - install -Dm755 tools/cjpegli /app/xl-converter/bin/linux/
+    sources:
+      - type: git
+        url: https://github.com/google/jpegli.git
+        commit: 031a0077f5799a6041004267fc12b956c1f52a20
+
   - name: oxipng
     buildsystem: simple
     build-options:
@@ -93,8 +117,8 @@ modules:
       - oxipng_sources.json
       - type: git
         url: https://github.com/shssoichiro/oxipng.git
-        tag: v9.1.5
-        commit: c7d462f909e9c6ebc8d32820d83a6119b681cad6
+        tag: v10.2.1
+        commit: 36f3ef8aac65ecf1761739ea2f2e530281f1312b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -121,15 +145,15 @@ modules:
     sources:
       - type: git
         url: https://aomedia.googlesource.com/libavif.git
-        tag: v1.3.0
-        commit: 1aadfad932c98c069a1204261b1856f81f3bc199
+        tag: v1.4.2
+        commit: c5240fc79fe5c2407e10afd35f5505ef6333ea49
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://chromium.googlesource.com/libyuv/libyuv.git
         dest: ext/libyuv
-        commit: 4db2af62d
+        commit: 26e56be0f
       - type: git
         url: https://github.com/maryla-uc/libargparse.git
         dest: ext/libargparse
@@ -153,8 +177,8 @@ modules:
       - type: git
         url: https://aomedia.googlesource.com/aom.git
         dest: ext/aom
-        tag: v3.13.1
-        commit: d772e334cc724105040382a977ebb10dfd393293
+        tag: v3.14.1
+        commit: 03087864cf4bea6abb0d28f95cf7843511413d8f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -205,8 +229,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ImageMagick/ImageMagick.git
-        tag: 7.1.2-3
-        commit: 147bc9c12ce8fbc1e94af5b5f6f0643ca410103a
+        tag: 7.1.2-30
+        commit: 344e9056f43764bfdf82456faf3bc2feee98a6fe
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+-\d+)$
@@ -221,8 +245,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exiftool/exiftool.git
-        tag: '13.37'
-        commit: 2b14d194b18c61e9ecb9e01093eeac889cb169de
+        tag: '13.59'
+        commit: 2200871d9cef988051d2a99d67df3bda6cbb30a8
         x-checker-data:
           type: git
           tag-pattern: ^(\d+.\d+)$
@@ -244,8 +268,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/google/brotli.git
-                tag: v1.1.0
-                commit: ed738e842d2fbdf2d6459e39267a633c4a9b2f5d
+                tag: v1.2.0
+                commit: 028fb5a23661f123017c060daa546b55cf4bde29
                 x-checker-data:
                   type: git
                   tag-pattern: ^v([\d.]+)$
@@ -297,8 +321,8 @@ modules:
               - 'chmod -R u+w /app/lib/perl5'
             sources:
               - type: archive
-                url: https://www.cpan.org/src/5.0/perl-5.42.0.tar.xz
-                sha256: 73cf6cc1ea2b2b1c110a18c14bbbc73a362073003893ffcedc26d22ebdbdd0c3
+                url: https://www.cpan.org/src/5.0/perl-5.44.0.tar.xz
+                sha256: 505cf43912e9480495c344c70260452e32aa2a73c546a026b3f100053b23ce91
                 x-checker-data:
                   type: anitya
                   project-id: 13599
@@ -327,7 +351,7 @@ modules:
       - type: git
         url: https://github.com/JacobDev1/xl-converter.git
         dest: xl-converter
-        commit: 4b728719c9b952c890f895337768af3df2c86a8d
+        commit: 9d645855b0d3b10e5fb0ce42ca337a06bef3c610
       - type: script
         commands:
           - python3 /app/xl-converter/main.py "$@"
