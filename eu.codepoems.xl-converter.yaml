@@ -69,7 +69,6 @@ modules:
       - cd /app/xl-converter/bin/linux/ && chmod 755 cjxl djxl jxlinfo
     cleanup:
       - /bin/benchmark_xl
-      - /bin/djpegli
     sources:
       - type: git
         url: https://github.com/libjxl/libjxl.git
@@ -87,7 +86,6 @@ modules:
       - -DBUILD_SHARED_LIBS=OFF
       - -DBUILD_TESTING=OFF
       - -DJPEGLI_ENABLE_TOOLS=ON
-      - -DJPEGLI_ENABLE_JPEGLI_LIBJPEG=OFF
       - -DJPEGLI_ENABLE_BENCHMARK=OFF
       - -DJPEGLI_ENABLE_FUZZERS=OFF
       - -DJPEGLI_ENABLE_JNI=OFF
