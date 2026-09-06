@@ -349,7 +349,7 @@ modules:
       - type: git
         url: https://github.com/JacobDev1/xl-converter.git
         dest: xl-converter
-        commit: 9d645855b0d3b10e5fb0ce42ca337a06bef3c610
+        commit: cb211c1e67e638eff335549b8d0489673bc41c07
       - type: script
         commands:
           - python3 /app/xl-converter/main.py "$@"
