@@ -6,15 +6,15 @@ JOBS                 = $(shell n=$$(nproc); echo $$((n > 1 ? n - 1 : 1)))
 
 .PHONY: build
 build:
-	flatpak run org.flatpak.Builder $(BUILD_DIR) --jobs=$(JOBS) --user --ccache --install --force-clean $(MANIFEST_PATH)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --jobs=$(JOBS) --user --ccache --install --force-clean --default-branch=dev $(MANIFEST_PATH)
 
 .PHONY: build-aarch64
 build-aarch64:
-	flatpak run org.flatpak.Builder $(BUILD_DIR) --jobs=$(JOBS) --arch=aarch64 --user --ccache --install --force-clean $(MANIFEST_PATH)
+	flatpak run org.flatpak.Builder $(BUILD_DIR) --jobs=$(JOBS) --arch=aarch64 --user --ccache --install --force-clean --default-branch=dev $(MANIFEST_PATH)
 
 .PHONY: run
 run:
-	flatpak run eu.codepoems.xl-converter
+	flatpak run --user eu.codepoems.xl-converter//dev
 
 .PHONY: generate-modules-xl-converter
 generate-modules-xl-converter:
