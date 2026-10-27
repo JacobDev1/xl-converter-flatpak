@@ -331,6 +331,21 @@ modules:
                 commands:
                   - exec ./configure.gnu $@
 
+  # Enables Gio backend in send2trash
+  - name: pygobject
+    buildsystem: meson
+    config-opts:
+      - -Dtests=false
+      - -Dpycairo=disabled
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/pygobject/3.58/pygobject-3.58.1.tar.gz
+        sha256: 4c80598ade17fbaa7798e01a25d0bf29ce109740786026a074c5c62bb3e79d23
+        x-checker-data:
+          type: gnome
+          name: pygobject
+          stable-only: true   # Important: Only use even minor versions. Gnome treats odd minor versions as unstable. https://gitlab.gnome.org/GNOME/pygobject/-/blob/63dd29bb3063e165a54da149457efa82004060b6/docs/changelog.rst
+
   - name: xl-converter
     buildsystem: simple
     build-commands:
