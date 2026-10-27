@@ -344,7 +344,8 @@ modules:
         x-checker-data:
           type: gnome
           name: pygobject
-          stable-only: true   # Important: Only use even minor versions. Gnome treats odd minor versions as unstable. https://gitlab.gnome.org/GNOME/pygobject/-/blob/63dd29bb3063e165a54da149457efa82004060b6/docs/changelog.rst
+          stable-only: true
+          version-scheme: odd-minor-is-unstable   # Only use even minor versions.
 
   - name: xl-converter
     buildsystem: simple
